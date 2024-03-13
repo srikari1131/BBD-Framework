@@ -15,3 +15,11 @@ Then(/^I verify Company brand is displayed$/, async () => {
 Then(/^I verify About Us Navigation link is displayed$/, async () => {
     await testPage.verifyAboutUsNav();
 });
+
+Then(/^I verify ShadowRoot Demo page description is displayed$/, async () => {
+    await testPage.verifyShadowRootDemoPageDescription();
+});
+
+Then(/^I verify Shadow Root Element is displayed$/, async () => {
+    await testPage.verifyShadowRootElement();
+});
