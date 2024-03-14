@@ -74,17 +74,17 @@ class userAction {
         Width = await element.getSize('width') + 4;
         Height - await element.getSize('height') + 4;
         await browser.execute(
-            "var div-document.createElement ('div');"
+            "var div=document.createElement ('div');"
             + "div.style.width ='" + Width + "px';"
             + "div.style.height ='" + Height + "px';"
-            + "div. style.background = 'transparent';"
+            + "div.style.background = 'transparent';"
             + "div.style.border = '4px solid green';"
             + "div.style.position = 'absolute';"
             + "div.style.left = '" + Xlocation + "px';"
             + "div.style.top = '" + Ylocation + "px';"
-            + "div. style.zIndex = '99999';"
+            + "div.style.zIndex = '99999';"
             + "div.id = 'highlightBorder' ;"
-            + "document. body. appendChild (div) ;"
+            + "document.body.appendChild (div) ;"
 
         );
 

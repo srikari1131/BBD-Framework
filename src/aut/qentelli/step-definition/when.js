@@ -8,6 +8,10 @@ const testPage = new TestPage();
 
 dotenv.config();
 
-// When(/^I verify Home Page is displayed$/, async () => {
-//     await homePage.verifyHomePageDisplayed();
-// });
+When(/^I click on About Us Navigation link$/, async () => {
+    await testPage.clickAboutUs();
+});
+
+When(/^I click on Contact Us Navigation link$/, async () => {
+    await testPage.clickContactUs();
+});

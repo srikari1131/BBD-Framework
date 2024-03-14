@@ -1,4 +1,4 @@
-Feature: Test
+Feature: Shadow Test
   Scenario: Verify javascript.info shadow-dom Page
     Given I navigate to the ShadowRoot Demo Page
     Then I verify ShadowRoot Demo page description is displayed

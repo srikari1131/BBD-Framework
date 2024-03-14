@@ -16,6 +16,18 @@ Then(/^I verify About Us Navigation link is displayed$/, async () => {
     await testPage.verifyAboutUsNav();
 });
 
+Then(/^I verify About Us page is displayed$/, async () => {
+    await testPage.verifyAboutUsPage();
+});
+
+Then(/^I verify Contact Us Navigation link is displayed$/, async () => {
+    await testPage.verifyContactUsNav();
+});
+
+Then(/^I verify Contact Us page is displayed$/, async () => {
+    await testPage.verifyContactUsPage();
+});
+
 Then(/^I verify ShadowRoot Demo page description is displayed$/, async () => {
     await testPage.verifyShadowRootDemoPageDescription();
 });
