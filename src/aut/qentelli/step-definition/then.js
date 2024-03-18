@@ -48,6 +48,10 @@ Then(/^I verify submit button field is displayed in form$/, async () => {
     await testPage.verifySubmitButton();
 });
 
+Then(/^I click on submit button field$/, async () => {
+    await testPage.clickSubmitButton();
+});
+
 Then(/^I verify ShadowRoot Demo page description is displayed$/, async () => {
     await testPage.verifyShadowRootDemoPageDescription();
 });

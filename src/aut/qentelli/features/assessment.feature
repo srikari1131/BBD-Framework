@@ -11,4 +11,4 @@ Feature: ContactUs
     Then I verify email field is displayed in form
     Then I verify message field is displayed in form
     And I verify submit button field is displayed in form
-    When I click on submit button field
+    Then I click on submit button field
