@@ -11,6 +11,8 @@ dotenv.config();
 const brand = "//a[@class='navbar-brand']";
 const aboutUsNav = "//li[@id='about_us']//a[contains(text(),'About Us')]";
 const contactUsNav = "//li[@id='contact_tab']";
+const clickProducts = "//a[normalize-space()='PRODUCTS']"
+const prodDetails = "//h1[normalize-space()='Revolutionizing Engineering Dynamics']"
 
 const shadowRootDemoDescription = "//div[@class='demo-description']";
 const shadowRootDemoDescriptionTxt = "Menu UI component is with Shadow DOM enabled. The Menu's markup structure, style, and behavior in this demo are hidden and separate from other code on the page.";
@@ -22,10 +24,14 @@ export default class TestPage extends Page {
         super();
         this.ourFounder = "//div[@class='Heading_text']//h2[contains(text(),'Our Founders')]";
         this.contactUs = "//div[@class='digital_banner-txt']//h1[contains(text(),'Contact Us')]";
+        this.products = "//a[normalize-space()='PRODUCTS']"
+        this.leadershipProducts = "//ul[@class='solution_list']//a[normalize-space()='Thought Leadership']"
+        this.productsContactUs = "//ul[@class='solution_list']//a[normalize-space()='Contact Us']"
     }
 
     // Navigate to Qentelli Website
     async navigateToQentelliWebsite() {
+        
         await action.openApplication(appConfig.url);
         await action.pause(1000);
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
@@ -57,6 +63,28 @@ export default class TestPage extends Page {
     // Click Qentelli Contact Us Navigation
     async clickContactUs() {
         await action.clickElement(contactUsNav, 100);
+    }
+
+    // Cliks on Products link
+    async clickProductsLink(){
+        await action.clickElement(clickProducts,100)
+    }
+    // Verify products details
+
+    async verifyProductText(){
+        await action.verifyIsDisplayed(prodDetails, 100)
+        await action.verifyText(prodDetails,)
+
+    }
+    // Verify Qentelli various products offerings
+
+    async verifyProductsOfferings(){
+        await action.verifyIsDisplayed(this.products)
+        await action.pause(1000)
+        await action.verifyIsDisplayed(this.products)
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+        await action.verifyIsDisplayed(this.leadershipProducts)
+        await action.clickElement(this.productsContactUs)
     }
 
     // Verify Qentelli About Us Page
