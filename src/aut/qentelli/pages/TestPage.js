@@ -9,14 +9,34 @@ import Page from './Page';
 dotenv.config();
 
 const brand = "//a[@class='navbar-brand']";
-const aboutUsNav = "//li[@id='about_us']//a[contains(text(),'About Us')]";
-const contactUsNav = "//li[@id='contact_tab']";
+const aboutUsNav = "//li[@id='about_us']//a[contains(text(),'About Us')]"
+const contactUsNav = "//ul[@class='solution_list']//a[normalize-space()='Contact Us']";
 const clickProducts = "//a[normalize-space()='PRODUCTS']"
 const prodDetails = "//h1[normalize-space()='Revolutionizing Engineering Dynamics']"
 
 const shadowRootDemoDescription = "//div[@class='demo-description']";
 const shadowRootDemoDescriptionTxt = "Menu UI component is with Shadow DOM enabled. The Menu's markup structure, style, and behavior in this demo are hidden and separate from other code on the page.";
 const shadowText = "File";
+
+const solutionsLink = "//a[normalize-space()='Solutions']"
+const digitalInnovationLink = "//div[@class='footer_list']//a[normalize-space()='Digital Innovation']"
+const continousDeliveryValueLink = "//div[@class='footer_list']//a[normalize-space()='Continuous Delivery of Value']"
+const qeLink = "//div[@class='footer_list']//a[normalize-space()='Quality Engineering']"
+const custExpLink = "//div[@class='footer_list']//a[normalize-space()='Customer Experience']"
+const sapLink = "//div[@class='footer_list']//a[normalize-space()='SAP']"
+
+const thoughtLeadershipLink = "//div[@class='footer_list']//a[normalize-space()='Thought Leadership']"
+const insightsLink = "//a[normalize-space()='Insights']"
+const caseStudiesLink = "//a[normalize-space()='Case Studies']"
+
+const aboutUsLink = "//div[@class='footer_list']//a[normalize-space()='About Us']"
+const testimonialsLink = "//a[normalize-space()='Testimonials']"
+const csrLink = "//a[normalize-space()='CSR']"
+
+const aboutQentelliEle = "//p[contains(text(),'Qentelli (Kwen–Tel–LEE) is a Digital and Cloud Tec')]"
+const aboutQentelliText = "Qentelli (Kwen–Tel–LEE) is a Digital and Cloud Technology Company. Our Intellectual Property which includes AI based products, frameworks, methodology and process playbooks help accelerate and deliver Digital Transformation, Cloud Adoption, DevOps and Quality Engineering solutions to our customers."
+const aboutQentelliElement = "//div[@class='foot_txt']//p"
+const qentelliLogoImg = "//div[@class='foot_list']//h4//img"
 
 export default class TestPage extends Page {
 
@@ -85,6 +105,29 @@ export default class TestPage extends Page {
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
         await action.verifyIsDisplayed(this.leadershipProducts)
         await action.clickElement(this.productsContactUs)
+    }
+
+    async verifyVariousLinksandTexts(){
+        await action.scrollElement(qentelliLogoImg, 'bottom')
+        await action.verifyIsDisplayed(solutionsLink, 100)
+        await action.verifyIsDisplayed(digitalInnovationLink, 100)
+        await action.verifyIsDisplayed(continousDeliveryValueLink, 100)
+        await action.verifyIsDisplayed(qeLink, 100)
+        await action.verifyIsDisplayed(custExpLink, 100)
+        await action.verifyIsDisplayed(sapLink, 100)
+
+        await action.verifyIsDisplayed(thoughtLeadershipLink, 100)
+        await action.verifyIsDisplayed(caseStudiesLink, 100)
+        await action.verifyIsDisplayed(insightsLink, 100)
+
+        await action.verifyIsDisplayed(aboutUsLink, 100)
+        await action.verifyIsDisplayed(testimonialsLink, 100)
+        await action.verifyIsDisplayed(csrLink, 100)
+
+        await action.verifyIsDisplayed(aboutQentelliElement, 100)
+        await expect($(aboutQentelliElement)).toHaveText(expect.stringContaining(aboutQentelliText))
+        await action.verifyIsDisplayed(qentelliLogoImg, 100)
+           
     }
 
     // Verify Qentelli About Us Page

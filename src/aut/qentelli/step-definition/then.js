@@ -49,3 +49,6 @@ Then(/^I validate various products offerings$/, async () => {
     await testPage.verifyProductsOfferings();
 });
 
+Then(/^I verify various links in contact us page$/, async () => {
+    await testPage.verifyVariousLinksandTexts();
+});

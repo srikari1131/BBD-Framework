@@ -57,7 +57,7 @@ class userAction {
                 break;
 
             case 'bottom':
-                await element.scrollIntoView(false);
+                await element.scrollIntoView(true);
                 break;
 
             case 'center':
