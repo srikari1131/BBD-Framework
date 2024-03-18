@@ -35,3 +35,15 @@ Then(/^I verify ShadowRoot Demo page description is displayed$/, async () => {
 Then(/^I verify Shadow Root Element is displayed$/, async () => {
     await testPage.verifyShadowRootElement();
 });
+
+Then(/^I verify the headings percentage displayed$/, async () => {
+    await testPage.verifyHeadingsPercentage();
+});
+
+Then(/^I verify the headings text displayed$/, async () => {
+    await testPage.verifyHeadingsText();
+});
+
+Then(/^I verify the headings paragraph displayed$/, async () => {
+    await testPage.verifyHeadingsParagraph();
+});

@@ -7,7 +7,7 @@
         "all": "wdio run ./wdio.conf.js",
         "suite": "wdio run ./wdio.conf.js --suite",
         "spec": "wdio run ./wdio.conf.js --spec",
-        "tags": "wdio run ./wdio.confjs --cucumberOpts.tags",
+        "tags": "wdio run ./wdio.conf.js --cucumberOpts.tags",
         "allure-report": "allure generate allure-results --clean && allure open",
         "html-report": "node ./cucumber-js-generate.js",
         "wdio": "wdio run ./wdio.conf.js"
