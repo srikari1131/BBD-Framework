@@ -11,6 +11,10 @@ dotenv.config();
 const brand = "//a[@class='navbar-brand']";
 const aboutUsNav = "//li[@id='about_us']//a[contains(text(),'About Us')]";
 const contactUsNav = "//li[@id='contact_tab']";
+const clickSolutionsTab = "//p[@id='solution_tab']//a[contains(text(),'Solutions')]";
+const clickCdvTab = "//h4[@id='Continuous_tab']";
+const verifyCdvText = "//h1[contains(text(),'Continuous Delivery of Value')]";
+const verifybridingText = "//p[contains(text(),'Bridging Culture and Practices to Boost')]";
 
 const shadowRootDemoDescription = "//div[@class='demo-description']";
 const shadowRootDemoDescriptionTxt = "Menu UI component is with Shadow DOM enabled. The Menu's markup structure, style, and behavior in this demo are hidden and separate from other code on the page.";
@@ -92,6 +96,39 @@ export default class TestPage extends Page {
         const locator = await $('smart-ui-menu').shadow$('smart-menu-items-group[role=menuitem] span');
         await expect(locator).toBeDisplayed();
         await expect(locator).toHaveText(expect.stringContaining(shadowText));
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
+    // Click Solutions Tab
+    async clickSolutionsTab() {
+        await action.clickElement(clickSolutionsTab, 100);
+    }
+
+    // click on Continuous Delivery of Value tab
+    async clickCdvTab(){
+        await action.clickElement(clickCdvTab, 100);
+    }
+
+    // Verify Continuous Delivery of Value Text
+    async verifyCdvText(){
+        await action.verifyIsDisplayed(verifyCdvText);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
+    // Verify Subtext under the same tab
+    async verifyBridingText(){
+        await action.verifyIsDisplayed(verifybridingText);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
+    // Click Qentelli talk to an expert Navigation
+    async clickTalktoExpert() {
+        await action.clickElement(clicktalktoExpert, 100);
+    }
+
+    // Verify Subtext under the same tab
+    async verifyBridingText(){
+        await action.verifyIsDisplayed(verifybridingText);
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
     }
 }

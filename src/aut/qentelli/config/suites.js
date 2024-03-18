@@ -10,6 +10,9 @@ export const specConfig = {
         "shadow-test": [
             'src/aut/qentelli/features/shadow-test.feature',
         ],
+        "assessment": [
+            'src/aut/qentelli/features/assessment.feature',
+        ],
         otherFeature: [
 
         ]
