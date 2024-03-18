@@ -28,6 +28,26 @@ Then(/^I verify Contact Us page is displayed$/, async () => {
     await testPage.verifyContactUsPage();
 });
 
+Then(/^I verify ContactUs Submit Form$/, async () => {
+    await testPage.verifyContactUsForm();
+});
+
+Then(/^I verify name field is displayed in form$/, async () => {
+    await testPage.verifyNameField();
+});
+
+Then(/^I verify email field is displayed in form$/, async () => {
+    await testPage.verifyEmailField();
+});
+
+Then(/^I verify message field is displayed in form$/, async () => {
+    await testPage.verifyContactUsForm();
+});
+
+Then(/^I verify submit button field is displayed in form$/, async () => {
+    await testPage.verifySubmitButton();
+});
+
 Then(/^I verify ShadowRoot Demo page description is displayed$/, async () => {
     await testPage.verifyShadowRootDemoPageDescription();
 });

@@ -15,3 +15,7 @@ When(/^I click on About Us Navigation link$/, async () => {
 When(/^I click on Contact Us Navigation link$/, async () => {
     await testPage.clickContactUs();
 });
+
+When(/^I click on submit button field$/, async () => {
+    await testPage.clickSubmitButton();
+});

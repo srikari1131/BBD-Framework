@@ -16,12 +16,18 @@ const shadowRootDemoDescription = "//div[@class='demo-description']";
 const shadowRootDemoDescriptionTxt = "Menu UI component is with Shadow DOM enabled. The Menu's markup structure, style, and behavior in this demo are hidden and separate from other code on the page.";
 const shadowText = "File";
 
+const nameElement = "//input[@id='edit-name']";
+const emailElement = "//input[@id='edit-email']";
+const messageElement = "//textarea[@id='edit-message']";
+const submitButton = "//input[@id='edit-actions-submit']";
+
 export default class TestPage extends Page {
 
     constructor() {
         super();
         this.ourFounder = "//div[@class='Heading_text']//h2[contains(text(),'Our Founders')]";
         this.contactUs = "//div[@class='digital_banner-txt']//h1[contains(text(),'Contact Us')]";
+        this.contactUsForm = "//div[@class='block-content']//form";
     }
 
     // Navigate to Qentelli Website
@@ -71,6 +77,46 @@ export default class TestPage extends Page {
         await action.verifyIsDisplayed(this.contactUs);
         await action.pause(1000);
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
+    // Verify Contact Us form
+    async verifyContactUsForm() {
+        await action.verifyIsDisplayed(this.contactUsForm);
+        await action.pause(1000);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
+    // Verify name field in contact Us form
+    async verifyNameField() {
+        await action.verifyIsDisplayed(nameElement);
+        await action.pause(1000);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
+    // Verify email field in contact Us form
+    async verifyEmailField() {
+        await action.verifyIsDisplayed(emailElement);
+        await action.pause(1000);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
+    // Verify Message field in contact Us form
+    async verifyMessageField() {
+        await action.verifyIsDisplayed(messageElement);
+        await action.pause(1000);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
+    // Verify Submit Button in contact Us form
+    async verifySubmitButton() {
+        await action.verifyIsDisplayed(submitButton);
+        await action.pause(1000);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
+    // Click submit Button
+    async clickSubmitButton() {
+        await action.clickElement(submitButton, 100);
     }
 
     // Navigate to ShadowRoot Demo Page
