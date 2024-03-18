@@ -11,6 +11,15 @@ dotenv.config();
 const brand = "//a[@class='navbar-brand']";
 const aboutUsNav = "//li[@id='about_us']//a[contains(text(),'About Us')]";
 const contactUsNav = "//li[@id='contact_tab']";
+const ProductLink="//a[normalize-space()='PRODUCTS']"
+const Discovertext="//div[@class='heading_txt']/h3"
+const EngineeringText="//h4[contains(text(),'Streamlined')]"
+const TEDText="//div[@class='stream_box']/p"
+const tedlink="//div[@class='half_box pb-5']//p[@class='learn_btn']"
+const discProdText = "Discover Our Featured Products"
+const streamLineText = "Streamlined Engineering Governance"
+const tedEleText = "TED offers a comprehensive real-time dashboard, empowering governance and informed decisions across engineering. Customizable analytics drive proactive strategies for sustained efficiency and growth."
+
 
 const shadowRootDemoDescription = "//div[@class='demo-description']";
 const shadowRootDemoDescriptionTxt = "Menu UI component is with Shadow DOM enabled. The Menu's markup structure, style, and behavior in this demo are hidden and separate from other code on the page.";
@@ -94,4 +103,25 @@ export default class TestPage extends Page {
         await expect(locator).toHaveText(expect.stringContaining(shadowText));
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
     }
+
+    async verifyProdlink() {
+        await action.verifyIsDisplayed(ProductLink, 100);
+    }
+    async clickProducts() {
+        await action.clickElement(ProductLink, 100);
+    }
+    async VerifyDiscoverText() {
+        await action.scrollElement(Discovertext, 'view')
+        await action.verifyIsDisplayed(Discovertext, 100)
+    }
+    async VerifyEngineeringText() {
+       await action.verifyIsDisplayed(EngineeringText, 100)
+    }
+    async TEDfulltext() {
+        await action.verifyIsDisplayed(TEDText, 100)
+    }
+    async clickonTED() {
+        await action.clickElement(tedlink, 100)
+    }
 }
+

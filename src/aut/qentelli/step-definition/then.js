@@ -35,3 +35,20 @@ Then(/^I verify ShadowRoot Demo page description is displayed$/, async () => {
 Then(/^I verify Shadow Root Element is displayed$/, async () => {
     await testPage.verifyShadowRootElement();
 });
+//I Verify Product link is desplayed
+Then(/^I Verify Product link is desplayed$/, async () => {
+    await testPage.verifyProdlink();
+});
+//I verify Discover Our Featured Products is desplayed
+Then(/^I verify Discover Our Featured Products is desplayed$/, async () => {
+    await testPage.VerifyDiscoverText();
+});
+//I verify Streamlined Engineering Governance is displayed
+Then(/^I verify Streamlined Engineering Governance is displayed$/, async () => {
+    await testPage.VerifyEngineeringText();
+});
+//I verify TED offers a comprehensive text is displayed
+Then(/^I verify TED offers a comprehensive text is displayed$/, async () => {
+    await testPage.TEDfulltext();
+});
+
