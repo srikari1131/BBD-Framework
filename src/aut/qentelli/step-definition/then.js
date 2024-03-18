@@ -35,3 +35,15 @@ Then(/^I verify ShadowRoot Demo page description is displayed$/, async () => {
 Then(/^I verify Shadow Root Element is displayed$/, async () => {
     await testPage.verifyShadowRootElement();
 });
+
+Then(/^I verify Solutions Navigation link is displayed$/, async () => {
+    await testPage.verifySolutionsNav();
+});
+
+Then(/^I verify Thought Leadership Navigation link is displayed$/, async () => {
+    await testPage.verifyThoughtLeadershipNav();
+});
+
+Then(/^I verify Thought Leadership page is displayed$/, async () => {
+    await testPage.verifyThoughtLeadershipPage();
+});

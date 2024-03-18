@@ -11,7 +11,8 @@ dotenv.config();
 const brand = "//a[@class='navbar-brand']";
 const aboutUsNav = "//li[@id='about_us']//a[contains(text(),'About Us')]";
 const contactUsNav = "//li[@id='contact_tab']";
-
+const solutionNav = "//li[@id='solution_tab']";
+const thoughtLeadershipNav = "//li[@id='thought_tab']";
 const shadowRootDemoDescription = "//div[@class='demo-description']";
 const shadowRootDemoDescriptionTxt = "Menu UI component is with Shadow DOM enabled. The Menu's markup structure, style, and behavior in this demo are hidden and separate from other code on the page.";
 const shadowText = "File";
@@ -22,6 +23,7 @@ export default class TestPage extends Page {
         super();
         this.ourFounder = "//div[@class='Heading_text']//h2[contains(text(),'Our Founders')]";
         this.contactUs = "//div[@class='digital_banner-txt']//h1[contains(text(),'Contact Us')]";
+        this.thoughtLeadership = "//div[@class='digital_banner-txt']//h1[contains(text(),'Empower Your Vision')]";
     }
 
     // Navigate to Qentelli Website
@@ -49,6 +51,20 @@ export default class TestPage extends Page {
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
     }
 
+    // Verify Qentelli Solution Navigation
+    async verifySolutionsNav() {
+        await action.verifyIsDisplayed(solutionNav);
+        await action.pause(1000);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
+    // Verify Qentelli ThoughtLeadership Navigation
+    async verifyThoughtLeadershipNav() {
+        await action.verifyIsDisplayed(thoughtLeadershipNav);
+        await action.pause(1000);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
     // Click Qentelli About Us Navigation
     async clickAboutUs() {
         await action.clickElement(aboutUsNav, 100);
@@ -73,6 +89,13 @@ export default class TestPage extends Page {
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
     }
 
+    // Verify Qentelli Thought Leadership Page
+    async verifyThoughtLeadershipPage() {
+        await action.verifyIsDisplayed(this.thoughtLeadership);
+        await action.pause(1000);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
     // Navigate to ShadowRoot Demo Page
     async navigateToShadowRootDemoPage() {
         await action.openApplication(appConfig.shadowUrl);
@@ -93,5 +116,10 @@ export default class TestPage extends Page {
         await expect(locator).toBeDisplayed();
         await expect(locator).toHaveText(expect.stringContaining(shadowText));
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
+    // Click Qentelli Contact Us Navigation
+    async clickOnThoughtLeadership() {
+        await action.clickElement(thoughtLeadershipNav, 100);
     }
 }
