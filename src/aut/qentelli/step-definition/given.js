@@ -12,3 +12,12 @@ Given(/^I navigate to the ShadowRoot Demo Page$/, async () => {
     console.log('I navigate to the ShadowRoot Demo Page');
     await testPage.navigateToShadowRootDemoPage();
 });
+
+
+/************************************************************/
+
+Given(/^I navigate to the qentelli website$/, async() => {
+    console.log('I navigate to the qentelli website')
+    await testPage.navigateToQentelliWebsite();
+});
+

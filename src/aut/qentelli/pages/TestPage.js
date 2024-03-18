@@ -16,6 +16,16 @@ const shadowRootDemoDescription = "//div[@class='demo-description']";
 const shadowRootDemoDescriptionTxt = "Menu UI component is with Shadow DOM enabled. The Menu's markup structure, style, and behavior in this demo are hidden and separate from other code on the page.";
 const shadowText = "File";
 
+/************************************************************/
+
+const solutionsTab= $("//p[@id='solution_tab']");
+const sapTab="//h4[@id='SAP_tab']";
+const sapHeaderText="//div[@class='digital_banner-txt']/h1";
+const sapHeaderContent="SAP S/4 HANA";
+const sapParaText="//div[@class='digital_banner-txt']/p";
+const sapParaContent="SAP’s S/4 HANA, a fully integrated ERP solution on an in-memory database";
+const talkToAnExpertButton="[id='edit-actions-submit']";
+
 export default class TestPage extends Page {
 
     constructor() {
@@ -94,4 +104,49 @@ export default class TestPage extends Page {
         await expect(locator).toHaveText(expect.stringContaining(shadowText));
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
     }
+
+    /************************************************************/
+
+    // Mouseover on solutions tab on home page
+    async iMouseOverOnSolutionsTab(){
+        await solutionsTab.moveTo();
+        await action.pause(1000);
+        await action.addScreenshot();
+    } 
+
+    //Click on sap tab
+    async iClickOnSapTab(){
+        await action.clickElement(sapTab)
+        await action.pause(1000)
+        await action.addScreenshot()
+    }
+
+    //Verify the header text on the sap page
+    async iVerifyTheHeaderTextDisplayedOnTheSapPage(){
+        await action.verifyIsDisplayed(sapHeaderText)
+        await expect($(sapHeaderText)).toHaveText(expect.stringContaining(sapHeaderContent));
+        await action.addScreenshot()
+    }
+
+    //Verify the header text on the sap page
+    async iVerifyTheSubTextDisplayedOnTheSapPage(){
+        await action.verifyIsDisplayed(sapParaText)
+        await expect($(sapParaText)).toHaveText(expect.stringContaining(sapParaContent));
+        await action.addScreenshot()
+    }
+
+    //Click on talk to an expert button 
+    async iClickOnTalkToAnExpertButton(){
+        await action.clickElement(talkToAnExpertButton)
+        await action.addScreenshot()
+    }
+    
+    //Verify mandatory alert message on sap page
+    // async iVerifyMandatoryAlertMessageOnEmptySubmission(){
+    //         broswer.getHTML('body').then(function(form, done){
+    //           form.should.contain('Please fill out this field.');
+    //           setTimeout(done, 1000);
+    //        });
+         
+    // }
 }
